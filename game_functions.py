@@ -21,8 +21,9 @@ def check_keydown_events(event, ai_settings, screen, ship, bullets):
     elif event.key == pygame.K_LEFT:
         ship.moving_left = True
     elif event.key == pygame.K_SPACE:
-        bullet = Bullet(ai_settings, screen, ship)
-        bullets.add(bullet)
+        if len(bullets) <= ai_settings.bullet_allowed:
+            bullet = Bullet(ai_settings, screen, ship)
+            bullets.add(bullet)
 
 def check_keyup_events(event, ship):
     """Respond to keypresses."""
