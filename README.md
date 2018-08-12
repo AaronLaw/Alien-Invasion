@@ -5,6 +5,9 @@ A simple block chain program as a demo.
 
 A simple game to learn pygame and OOP.
 
+### Setup
+pip install pygame
+
 @Reference: 
 https://inventwithpython.com/blog/2014/12/02/why-is-object-oriented-programming-useful-with-a-role-playing-game-example/
 # -> Google: python object oriented design
