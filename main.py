@@ -7,6 +7,7 @@ A simple RPG game to learn OOP.
 import sys
 import pygame
 from settings import Settings
+from ship import Ship
 
 def run_game():
     # Initialize game and create a screen object.
@@ -16,6 +17,7 @@ def run_game():
         (ai_settings.screen_width, ai_settings.screen_height))
     pygame.display.set_caption("Alien Invasion")
 
+    ship = Ship(screen)
     screen.fill(ai_settings.bg_color)
     # Start the main loop for the game.
     while True:
