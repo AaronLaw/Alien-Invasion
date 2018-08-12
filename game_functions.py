@@ -82,3 +82,7 @@ def create_alien(ai_settings, screen, aliens, alien_number):
     alien.x = alien_width + 2*alien_width*alien_number
     alien.rect.x = alien.x
     aliens.add(alien)
+
+def update_aliens(aliens):
+    """Update the positions of all aliens in the fleet."""
+    aliens.update()
