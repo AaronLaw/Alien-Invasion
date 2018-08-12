@@ -18,14 +18,15 @@ def run_game():
     pygame.display.set_caption("Alien Invasion")
 
     ship = Ship(screen)
-    screen.fill(ai_settings.bg_color)
     # Start the main loop for the game.
     while True:
         for event in pygame.event.get():
             if event.type==pygame.QUIT:
                 sys.exit()
 
-    pygame.display.flip()
+        screen.fill(ai_settings.bg_color)
+        ship.blitme()
+        pygame.display.flip()
 
 
 def main():
