@@ -1,6 +1,7 @@
 import sys
 import pygame
 from bullet import Bullet
+from alien import Alien
 
 def check_events(ai_settings, screen, ship, bullets):
     """Respond to keypresses and mouse events."""
@@ -38,7 +39,8 @@ def update_screen(ai_settings, screen, ship, alien, bullets):
     for bullet in bullets.sprites():
         bullet.draw_bullet()
     ship.blitme()
-    alien.blitme()
+    #alien.blitme()
+    alien.draw(screen)
 
     # Make the monst recently drawn screen visible.
     pygame.display.flip()
@@ -59,3 +61,16 @@ def fire_bullet(ai_settings, screen, ship, bullets):
         bullet = Bullet(ai_settings, screen, ship)
         bullets.add(bullet)
 
+def create_fleet(ai_settings, screen, aliens):
+    """Create a full fleet of aliens."""
+    alien = Alien(ai_settings, screen)
+    alien_width = alien.rect.width
+    available_space_x = ai_settings.screen_width - 2*alien_width
+    number_aliens_x = int(available_space_x / (2*alien_width))
+
+    # Create the first row of aliens.
+    for alien_number in  range(number_aliens_x):
+        alien = Alien(ai_settings, screen)
+        alien.x = alien_width + 2*alien_width*alien_number
+        alien.rect.x = alien.x
+        aliens.add(alien)
