@@ -10,6 +10,8 @@ def check_events(ship):
             check_keydown_events(event, ship)
         elif event.type == pygame.KEYUP:
             check_keyup_events(event, ship)
+        
+        print(event)
 
 def check_keydown_events(event, ship):
     """Respond to keypresses."""
