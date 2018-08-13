@@ -56,10 +56,15 @@ def update_bullets(ai_settings, screen, bullets, aliens):
             bullets.remove(bullet)
     print('Bullets: %s' % len(bullets))
 
+    check_bullet_alien_collisions(ai_settings, screen, bullets, aliens)
+    repopulate_aliens(ai_settings, screen, bullets, aliens)
+
+def check_bullet_alien_collisions(ai_settings, screen, bullets, aliens):
     # Check for any bullets that have hit aliens.
-    # If so, get rid of the bullet and the alien.
+    # If so, get rid of the bullet and the alien that havecollided.
     collisions = pygame.sprite.groupcollide(bullets, aliens, True, True)
 
+def repopulate_aliens(ai_settings, screen, bullets, aliens):
     # Consider if we need to repopulate the fleet once it has been destroyed.
     # One key feature of Alien Invasion is that the alien are relentless: everytime the fleet is destroyed, a new fleet should appear.
     if len(aliens) == 0:
