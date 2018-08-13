@@ -34,7 +34,7 @@ def check_keyup_events(event, ship):
     elif event.key == pygame.K_LEFT:
         ship.moving_left = False
 
-def update_screen(ai_settings, screen, ship, alien, bullets):
+def update_screen(ai_settings, screen, stats, ship, alien, bullets, play_button):
     """Update images on the screen and flip to the new screen."""
     screen.fill(ai_settings.bg_color)
     for bullet in bullets.sprites():
@@ -42,6 +42,10 @@ def update_screen(ai_settings, screen, ship, alien, bullets):
     ship.blitme()
     #alien.blitme()
     alien.draw(screen)
+
+    # Draw the play button if the game is inactive.
+    if not stats.game_active:
+        play_button.draw_button()
 
     # Make the monst recently drawn screen visible.
     pygame.display.flip()

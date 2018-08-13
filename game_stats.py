@@ -8,7 +8,7 @@ class GameStats():
         self.reset_stats()
         # Start Alien invasion in an active state.
         # If ship got hit, its life -1 and check should we turn the game inactive.
-        self.game_active = True
+        self.game_active = False
 
     def reset_stats(self):
         """Initialize statistics that can change during the game."""
