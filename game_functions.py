@@ -110,6 +110,8 @@ def update_aliens(ai_settings, stats, screen, aliens, ship, bullets):
         print("Ship hit!!!")
         ship_hit(ai_settings, stats, screen, ship, aliens, bullets)
 
+    check_aliens_bottom(ai_settings, stats, screen, ship, aliens, bullets)
+
 def ship_hit(ai_settings, stats, screen, ship, aliens, bullets):
     """Respond to ship being hit by alien."""
     stats.ships_left -= 1
@@ -119,6 +121,15 @@ def ship_hit(ai_settings, stats, screen, ship, aliens, bullets):
     ship.center_ship()
     sleep(0.5)
 
+def check_aliens_bottom(ai_settings, stats, screen, ship, aliens, bullets):
+    """Check if an alien have reached the bottom of the screen."""
+    screen_rect = screen.get_rect()
+    for alien in aliens.sprites():
+        if alien.rect.bottom >= screen_rect.bottom:
+            # Treat this the same as if the ship got hit.
+            ship_hit(ai_settings, stats, screen, ship, aliens, bullets)
+            break
+ 
 def check_fleet_edges(ai_settings, aliens):
     """Respond appropriately if any aliens have reached an edge."""
     for alien in aliens.sprites():
