@@ -1,5 +1,5 @@
 """
-A simple RPG game to learn OOP.
+A simple action game to learn OOP.
 
 @Author: Aaronlaw
 @Date: 2018-08-12
