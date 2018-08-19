@@ -140,13 +140,13 @@ def ship_hit(ai_settings, stats, screen, ship, aliens, bullets):
         stats.ships_left -= 1
         aliens.empty()
         bullets.empty()
-        create_fleet(ai_settings, screen, aliens, number_row)
+        create_fleet(ai_settings, screen, ship, aliens)
         ship.center_ship()
         sleep(0.5)
     else:
         stats.game_active = False
 
-# def check_aliens_bottom(ai_settings, stats, screen, ship, aliens, bullets):
+def check_aliens_bottom(ai_settings, stats, screen, ship, aliens, bullets):
     """Check if an alien have reached the bottom of the screen."""
     screen_rect = screen.get_rect()
     for alien in aliens.sprites():
